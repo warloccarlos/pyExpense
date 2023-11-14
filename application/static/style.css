@@ -1,0 +1,54 @@
+@font-face{
+    font-family: shareTech;
+    src: url('../static/ShareTechmono.ttf');
+}
+@font-face {
+    font-family: Dense;
+    src: url('../static/Dense.otf');
+}
+@font-face {
+    font-family: AurulentSans;
+    src: url('../static/AurulentSans.otf');
+}
+@font-face {
+    font-family: AmericanCaptain;
+    src: url('../static/AmericanCaptain.otf');
+}
+@font-face {
+    font-family: Arvo-Bold;
+    src: url('../static/Arvo-Bold.ttf');
+}
+@font-face {
+    font-family: Arvo-Regular;
+    src: url('../static/Arvo-Regular.ttf');
+}
+@font-face {
+    font-family: Bison-Bold;
+    src: url('../static/Bison-Bold.ttf');
+}
+@font-face {
+    font-family: Quartzo;
+    src: url('../static/Quartzo.otf');
+}
+@font-face {
+    font-family: Exo2-Regular;
+    src: url('../static/Exo2-Regular.ttf');
+}
+@font-face {
+    font-family: Exo2-Thin;
+    src: url('../static/Exo2-Thin.ttf');
+}
+@font-face {
+    font-family: Exo2-Bold;
+    src: url('../static/Exo2-Bold.ttf');
+}
+.fontColor{
+    color: rgb(200, 50, 40);
+}
+.itemColor:hover{
+    color: rgb(200, 50, 40);
+}
+body{
+        background-color:   blueviolet; /* For browsers that do not support gradients */
+        background-image:   linear-gradient(90deg, rgba(138,28,227,1) 0%, 58%, rgba(255,0,164,1) 100%);
+}

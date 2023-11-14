@@ -1,0 +1,39 @@
+{% extends 'template.html' %}
+
+{% block title %}Signup - pyRent {% endblock %}
+
+{% block content %}
+
+    <div class="d-flex justify-content-center align-items-center p-4">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="container-fluid mt-4 p-4 bg-dark d-flex justify-content-center align-items-center rounded-4" style="font-family: Arvo-Regular">
+                <form method="POST">
+                    <div class="p-3 mb-4 display-3 text-light" style="font-family: shareTech">Signup &nbsp; <hr class="border-light-subtle border-2"></div>
+                    <div class="p-1">
+                        <input type="text" class="form-control" name="fname" placeholder="First Name" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <input type="text" class="form-control" name="lname" placeholder="Last/Surname" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <input type="email" class="form-control" name="email" placeholder="Valid Email" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <input type="password" class="form-control" name="passw" placeholder="Password" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <input type="password" class="form-control" name="passwc" placeholder="Re-enter Password" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <button class="btn btn-primary border-light px-3">Create Account</button>
+                    </div>
+                    <div class="p-2 m-4 rounded-2" style="background-color: rgba(80, 80, 80, 0.4)">
+                        <span class="px-2 text-light">Already have an account?</span>
+                        <a href="{{ url_for('auth.login') }}" class="px-5 text-decoration-none text-primary">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

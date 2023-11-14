@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {%block title%} Template - Quiz{%endblock%}
+    </title>
+    <script src="{{url_for('static', filename='jquery-3.7.0.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.bundle.js')}}"></script>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+
+    <script src="{{url_for('static', filename='jquery-3.7.0.js')}}"></script>
+    <script src="{{url_for('static', filename='popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.bundle.js')}}"></script>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+
+    <div class="row">
+        <div>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        {% if category == 'error' %}
+                            <div class="alert alert-danger alert-dismissible fade show bg-danger" role="alert">
+                                {{message}}
+                                <button type="button" class="close border border-0 bg-danger-subtle rounded rounded-1" data-bs-dismiss="alert">
+                                    <span class="fs-4" aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-success alert-dismissible fade show bg-success" role="alert">
+                                {{message}}
+                                <button type="button" class="close border border-0 bg-success-subtle rounded rounded-1" data-bs-dismiss="alert">
+                                    <span class="fs-4"   aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="d-flex justify-content-center align-items-center pb-4 pe-4 ps-4 bg-dark rounded-4">
+            <header class="display-1 text-light" style="font-family: Arvo-Regular">S K Empire - pyExpense</header>
+        </div>
+    </div>
+
+    <div class="row">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <div class="row bg-dark mt-3">
+        <footer class="text-center text-white" style="font-family: Arvo-Regular">
+            <!-- Grid container -->
+            <div class="container">
+              <!-- Section: Links -->
+              <section class="mt-5">
+                <!-- Grid row-->
+                <div class="row text-center d-flex justify-content-center pt-5">
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                      <a href="https://www.hashstash.co.in" class="text-white">HashStash</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                      <a href="https://warloccarlos.pythonanywhere.com" class="text-white">Disposable Email</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                      <a href="http://www.hashstash.co.in/portfolio/" class="text-white">Portfolio</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                      <a href="#!" class="text-white">Contact</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+
+                  <!-- Grid column -->
+                  <div class="col-md-2">
+                    <h6 class="text-uppercase font-weight-bold">
+                      <a href="#!" class="text-white">About</a>
+                    </h6>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row-->
+              </section>
+              <!-- Section: Links -->
+
+              <!--<hr class="my-5" />-->
+
+              <!-- Section: Social
+              <section class="text-center mb-5">
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="text-white me-4">
+                  <i class="fab fa-github"></i>
+                </a>
+              </section>
+              <!-- Section: Social -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+              © 2020 S K Empire
+            </div>
+            <!-- Copyright -->
+      </footer>
+    </div>
+
+</body>
+</html>

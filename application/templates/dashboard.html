@@ -1,0 +1,123 @@
+{% extends 'template.html' %}
+
+{% block title %}Dashboard - pyRent {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <div style="font-family: Arvo-Regular;">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark border border-2 border-danger">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#">pyRenT</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light" aria-current="page" href="{{ url_for('view.dashboard') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{url_for('view.details')}}">Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{url_for('view.manage')}}">Manage</a>
+                        </li>
+                    </ul>
+                    <div class="float-end me-4 pe-4 bg-dark">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(200, 50, 40)">
+                                    {{ user.name }}
+                                </a>
+                                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                                    <li class="bg-dark"><a class="dropdown-item bg-dark fontColor itemColor" href="{{url_for('auth.logout')}}">Logout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                      </div>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center p-4">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="container-fluid mt-4 p-4 bg-dark d-flex justify-content-center align-items-center rounded-4" style="font-family: Arvo-Regular">
+                <form method="POST">
+                    <div class="display-3 text-light" style="font-family: shareTech">Add Expense Details<hr class="border-light-subtle border-2"></div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Type</label>
+                        <select class="form-control" name="type">
+                            <option>Choose the expense type</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Rent Security">Rent Security</option>
+                            <option value="Advance">Advance</option>
+                            <option value="Electricity">Electricity</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Misc">Misc</option>
+                        </select>
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Name of the person payment made to:</label>
+                        <input type="text" class="form-control" name="paidto" placeholder="Paid to" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Amount</label>
+                        <input type="text" class="form-control" name="amount" placeholder="Amount" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">For the Month</label>
+                        <select class="form-control" name="month">
+                            <option value="default">For the Month:</option>
+                            <option value="Jan">January</option>
+                            <option value="Feb">February</option>
+                            <option value="Mar">March</option>
+                            <option value="Apr">April</option>
+                            <option value="May">May</option>
+                            <option value="Jun">June</option>
+                            <option value="Jul">July</option>
+                            <option value="Aug">August</option>
+                            <option value="Sep">September</option>
+                            <option value="Oct">October</option>
+                            <option value="Nov">November</option>
+                            <option value="Dec">December</option>
+                        </select>
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Status</label>
+                        <select class="form-control" name="status">
+                            <option value="default">Choose the Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Balance">Balance</option>
+                        </select>
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Date</label>
+                        <input type="date" class="form-control" name="date" placeholder="Enter the Date" autocomplete="false">
+                    </div>
+                    <div class="p-1">
+                        <label class="p-1 text-light">Previous Balance</label>
+                        <input type="text" class="form-control" name="bal" placeholder="Previous Balance" autocomplete="false">
+                    </div>
+                    <div class="p-1 mt-2">
+                        <button class="btn btn-primary border-light px-5">Add Details</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+
+{{ redirect(url_for('auth.login'))}}
+
+{% endif %}
+
+{% endblock %}
